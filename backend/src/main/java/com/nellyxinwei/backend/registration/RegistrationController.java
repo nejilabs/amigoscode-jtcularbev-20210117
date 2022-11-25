@@ -1,5 +1,6 @@
 package com.nellyxinwei.backend.registration;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +14,8 @@ public class RegistrationController {
 
   private RegistrationService registrationService;
 
-  public String register(@RequestBody RegistrationRequest request) {
+  @PostMapping
+  public String register(RegistrationRequest request) {
     return registrationService.register(request);
   }
 }

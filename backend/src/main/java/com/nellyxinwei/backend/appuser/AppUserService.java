@@ -36,6 +36,9 @@ public class AppUserService implements UserDetailsService {
         .isPresent();
 
     if (userExists) {
+      // TODO: check if attributes are the same
+      // TODO: if email not confirmed yet, send confirmation email.
+
       throw new IllegalStateException("email already taken");
     }
 
@@ -53,8 +56,6 @@ public class AppUserService implements UserDetailsService {
         appUser);
 
     confirmationTokenService.saveConfirmationToken(confirmationToken);
-
-    // TODO: SEND EMAIL
 
     return token;
   }
